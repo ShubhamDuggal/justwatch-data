@@ -32,7 +32,7 @@ const server = http.createServer((request, response) => {
 
             var justwatch = new JustWatch();
 
-	var searchResult = await justwatch.search({query: body});
+	var searchResult = justwatch.search({query: body});
 	
     http.createServer(print_result(searchResult)).listen(port);
         });
