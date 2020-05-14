@@ -1,13 +1,12 @@
 var http = require('http');
 const JustWatch = require('./');
-var hostname = '127.0.0.1';
 var port = 8080;
 (async function(){
 	var justwatch = new JustWatch();
 
 	var searchResult = await justwatch.search({query: 'money heist'});
 	
-    http.createServer(print_result(searchResult)).listen(port, hostname);
+    http.createServer(print_result(searchResult)).listen(port);
 	
 })();
 
