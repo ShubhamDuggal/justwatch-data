@@ -1,4 +1,5 @@
 var http = require('http');
+querystring = require('querystring');
 const JustWatch = require('./');
 var port = process.env.PORT || 3000;
 (async function(){
@@ -23,5 +24,34 @@ function print_result(result) {
 	  response.write(JSON.stringify(result, null, 4));
       response.end();
   }
+  
+   if(request.method === 'POST') {
+        let body = '';
+        
+        // very important to handle errors
+        request.on('error', (err) => {
+            if(err) {
+                response.writeHead(500, {'Content-Type': 'text/html'});
+                response.write('An error occurred');
+                response.end();
+            }
+        });
+        
+        // read chunks of POST data
+        request.on('data', chunk => {
+            body += chunk.toString();
+        });
+
+        // when complete POST data is received
+        request.on('end', () => {
+            // use parse() method
+            body = querystring.parse(body);
+            
+            console.log(body);
+
+            // rest of the code
+        });
+}
+
 }
 
