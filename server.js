@@ -50,7 +50,7 @@ if(request.method === 'POST') {
     // rest of the code
 });
 
-server.listen(8080);
+server.listen(port);
 
 
 
