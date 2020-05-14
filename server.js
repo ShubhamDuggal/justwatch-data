@@ -2,11 +2,11 @@ var http = require('http');
 querystring = require('querystring');
 const JustWatch = require('./');
 var port = process.env.PORT || 3000;
-var body = '';
+
 
 const server = http.createServer((request, response) => {
     if(request.method === 'POST') {
-        
+        let body = '';
         
         // very important to handle errors
         request.on('error', (err) => {
@@ -30,7 +30,11 @@ const server = http.createServer((request, response) => {
             // { name: 'John', gender: 'MALE', email: 'john@gmail.com' }
             console.log(body);
 
-            // rest of the code
+            var justwatch = new JustWatch();
+
+	var searchResult = await justwatch.search({query: body});
+	
+    http.createServer(print_result(searchResult)).listen(port);
         });
     }
     
@@ -38,16 +42,6 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(8080);
-
-
-(async function(){
-	var justwatch = new JustWatch();
-
-	var searchResult = await justwatch.search({query: body});
-	
-    http.createServer(print_result(searchResult)).listen(port);
-	
-})();
 
 
 
