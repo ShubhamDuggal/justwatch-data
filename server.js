@@ -1,6 +1,6 @@
 var http = require('http');
 const JustWatch = require('./');
-var port = 8080;
+var port = process.env.PORT || 3000;
 (async function(){
 	var justwatch = new JustWatch();
 
