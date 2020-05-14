@@ -42,7 +42,7 @@ if(request.method === 'POST') {
             var justwatch = new JustWatch();
 
 	var searchResult = justwatch.search({query: body});
-	 console.log(searchResult);
+	 return searchResult;
 
         });
     }
