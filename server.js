@@ -31,17 +31,17 @@ if(request.method === 'POST') {
         request.on('end', () => {
             // use parse() method
             body = querystring.parse(body);
-            response.writeHead(200, {'Content-Type': 'text/plain'});
-            response.write('404 Not Found\n');
-            response.end();
+            response.writeHead(200, {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
+          //  response.write('404 Not Found\n');
+            
             // { name: 'John', gender: 'MALE', email: 'john@gmail.com' }
             //console.log(body);
-             //response.write(JSON.stringify(body, null, 4));
+             response.write(JSON.stringify(body, null, 4));
           //  var justwatch = new JustWatch();
 
 	//var searchResult = justwatch.search({query: body});
 	// return searchResult;
-
+          response.end();
         });
     }
     
