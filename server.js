@@ -31,7 +31,7 @@ if(request.method === 'POST') {
         request.on('end', () => {
             // use parse() method
             body = querystring.parse(body);
-         var str = JSON.stringify(body, null, 4);
+         var str = JSON.stringify(body);
 	
   //     var objectValue = JSON.parse(str);
     //   var mm = objectValue.name;
