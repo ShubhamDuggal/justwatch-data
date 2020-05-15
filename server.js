@@ -31,7 +31,7 @@ if(request.method === 'POST') {
         request.on('end', () => {
             // use parse() method
             body = querystring.parse(body);
-            jsonData = JSON.parse(JSON.stringify(body))     
+            jsonData = JSON.parse(JSON.stringify(body));
              console.log(jsonData.query);
 	        var jsonObj = {'query': jsonData.name};
 		//var searchResult = justwatch.search({query: name});
