@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
       "crow"
     ]
   };
-
+res.writeHead(200, {'Content-Type': 'application/json'});
   res.json(data);
 });
 
