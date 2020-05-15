@@ -6,8 +6,10 @@ var port = process.env.PORT || 3000;
 
 const server = http.createServer((request, response) => {
 	response.setHeader('Access-Control-Allow-Origin', '*')
-        response.setHeader('Access-Control-Allow-Headers', 'x-requested-with,Access-Control-Allow-Origin,Access-Control-Allow-Headers,Pragma,Cache-Control')
-        
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+      	response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+               
 if(request.method === 'POST') {
         let body = '';
         
@@ -15,11 +17,6 @@ if(request.method === 'POST') {
         request.on('error', (err) => {
             if(err) {
                 response.writeHead(500, {'Content-Type': 'text/html'});
-		     response.setHeader("Access-Control-Allow-Origin", "*");
-     		response.setHeader("Access-Control-Allow-Credentials", "true");
-      		response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-      		response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-               
 	        response.write('An error occurred');
                 response.end();
             }
@@ -34,13 +31,7 @@ if(request.method === 'POST') {
         request.on('end', () => {
             // use parse() method
             body = querystring.parse(body);
-                response.writeHead(200, {'Content-Type': 'text/html'});
-		response.setHeader("Access-Control-Allow-Origin", "*");
-     		response.setHeader("Access-Control-Allow-Credentials", "true");
-      		response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-      		response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-               
-	        response.setHeader("Access-Control-Allow-Origin", "*");
+           //     response.writeHead(200, {'Content-Type': 'text/html'});
           //  response.write('404 Not Found\n');
             
             // { name: 'John', gender: 'MALE', email: 'john@gmail.com' }
