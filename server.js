@@ -36,12 +36,13 @@ if(request.method === 'POST') {
           //  response.write('404 Not Found\n');
             
             // { name: 'John', gender: 'MALE', email: 'john@gmail.com' }
-            //console.log(body);
-             response.write(JSON.stringify(body, null, 4));
-          //  var justwatch = new JustWatch();
-
-	//var searchResult = justwatch.search({query: body});
-	// return searchResult;
+              console.log(body.name);
+             response.write(JSON.stringify(body.name, null, 4));
+         
+		
+		//  var justwatch = new JustWatch();
+                //var searchResult = justwatch.search({query: body});
+	        // return searchResult;
           response.end();
         });
     }
