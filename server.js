@@ -31,7 +31,7 @@ if(request.method === 'POST') {
         request.on('end', () => {
             // use parse() method
             body = querystring.parse(body);
-			response.writeHead(200, {'Content-Type': 'application/json'});
+			
             //   response.writeHead(200, {'Content-Type': 'text/html'});
           //  response.write('404 Not Found\n');
             
@@ -39,6 +39,7 @@ if(request.method === 'POST') {
               console.log(body.name);
 		var name = body.name;
 		//var searchResult = justwatch.search({query: name});
+             response.writeHead(200, {'Content-Type': 'application/json'});
              response.write(JSON.stringify(name, null, 4));
          
 		
