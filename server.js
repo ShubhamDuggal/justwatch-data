@@ -37,11 +37,14 @@ if(request.method === 'POST') {
             
             // { name: 'John', gender: 'MALE', email: 'john@gmail.com' }
               console.log(body.name);
-		var name = body.name;
-	        var jsonObj = {'query': body.name};
+		var str = JSON.stringify(body, null, 4);
+	
+       var objectValue = JSON.parse(str);
+       var mm = objectValue.name;
+	        var jsonObj = {'query': mm};
 		//var searchResult = justwatch.search({query: name});
              response.writeHead(200, {'Content-Type': 'application/json'});
-            response.write(JSON.stringify(body, null, 4)); 
+            response.write(JSON.stringify(jsonObj, null, 4)); 
          
 		
 		//  var justwatch = new JustWatch();
