@@ -39,8 +39,8 @@ if(request.method === 'POST') {
               console.log(body.name);
 		var name = body.name;
 		//var searchResult = justwatch.search({query: name});
-             response.writeHead(200, {'Content-Type': 'application/json'});
-             response.write(JSON.stringify(name, null, 4));
+             response.writeHead(200, {'text/plain; charset=utf-8'});
+             response.write(name);
          
 		
 		//  var justwatch = new JustWatch();
