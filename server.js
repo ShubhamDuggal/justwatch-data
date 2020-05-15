@@ -5,6 +5,9 @@ var port = process.env.PORT || 3000;
 
 
 const server = http.createServer((request, response) => {
+	response.setHeader('Access-Control-Allow-Origin', '*')
+        response.setHeader('Access-Control-Allow-Headers', 'x-requested-with,Access-Control-Allow-Origin,Access-Control-Allow-Headers,Pragma,Cache-Control')
+        
 if(request.method === 'POST') {
         let body = '';
         
