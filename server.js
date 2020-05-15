@@ -38,9 +38,10 @@ if(request.method === 'POST') {
             // { name: 'John', gender: 'MALE', email: 'john@gmail.com' }
               console.log(body.name);
 		var name = body.name;
+	        var jsonObj = {'query': name};
 		//var searchResult = justwatch.search({query: name});
-             response.writeHead(200, {'text/plain; charset=utf-8'});
-             response.write(name);
+             response.writeHead(200, {'application/x-www-form-urlencoded; charset=UTF-8'});
+             response.write(JSON.stringify(jsonObj, null, 4));
          
 		
 		//  var justwatch = new JustWatch();
