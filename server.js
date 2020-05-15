@@ -40,7 +40,7 @@ if(request.method === 'POST') {
 		var name = body.name;
 	        var jsonObj = {'query': name};
 		//var searchResult = justwatch.search({query: name});
-             response.writeHead(200, {'application/x-www-form-urlencoded; charset=UTF-8'});
+             response.writeHead(200, {'Content-Type': 'application/json'});
              response.write(JSON.stringify(jsonObj, null, 4));
          
 		
