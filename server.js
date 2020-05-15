@@ -38,8 +38,8 @@ if(request.method === 'POST') {
             // { name: 'John', gender: 'MALE', email: 'john@gmail.com' }
               console.log(body.name);
 		var name = body.name;
-		var searchResult = justwatch.search({query: name});
-             response.write(searchResult);
+		//var searchResult = justwatch.search({query: name});
+             response.write(JSON.stringify(name));
          
 		
 		//  var justwatch = new JustWatch();
