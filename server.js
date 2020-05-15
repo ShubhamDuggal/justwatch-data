@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.post('/', cors(), function(req,res){
+app.post('/', function(req,res){
  // var user_name=req.body.name;
     console.log('receiving data...');
     console.log('body is ',req.body);
