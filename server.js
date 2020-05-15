@@ -31,11 +31,9 @@ if(request.method === 'POST') {
         request.on('end', () => {
             // use parse() method
             body = querystring.parse(body);
-         var str = JSON.stringify(body);
-	
-  //     var objectValue = JSON.parse(str);
-    //   var mm = objectValue.name;
-	        var jsonObj = {'query': str};
+            jsonData = JSON.parse(JSON.stringify(body))     
+             console.log(jsonData.query);
+	        var jsonObj = {'query': jsonData.name};
 		//var searchResult = justwatch.search({query: name});
              response.writeHead(200, {'Content-Type': 'application/json'});
             response.write(JSON.stringify(jsonObj, null, 4)); 
