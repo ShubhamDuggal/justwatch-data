@@ -31,8 +31,13 @@ if(request.method === 'POST') {
         request.on('end', () => {
             // use parse() method
             body = querystring.parse(body);
-            response.writeHead(200, {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
-            response.setHeader("Access-Control-Allow-Origin", "*");
+                response.writeHead(200, {'Content-Type': 'text/html'});
+		response.setHeader("Access-Control-Allow-Origin", "*");
+     		response.setHeader("Access-Control-Allow-Credentials", "true");
+      		response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+      		response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+               
+	        response.setHeader("Access-Control-Allow-Origin", "*");
           //  response.write('404 Not Found\n');
             
             // { name: 'John', gender: 'MALE', email: 'john@gmail.com' }
