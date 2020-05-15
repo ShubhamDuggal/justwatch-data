@@ -31,17 +31,11 @@ if(request.method === 'POST') {
         request.on('end', () => {
             // use parse() method
             body = querystring.parse(body);
-			
-            //   response.writeHead(200, {'Content-Type': 'text/html'});
-          //  response.write('404 Not Found\n');
-            
-            // { name: 'John', gender: 'MALE', email: 'john@gmail.com' }
-              console.log(body.name);
-		var str = JSON.stringify(body, null, 4);
+         var str = JSON.stringify(body, null, 4);
 	
-       var objectValue = JSON.parse(str);
-       var mm = objectValue.name;
-	        var jsonObj = {'query': mm};
+  //     var objectValue = JSON.parse(str);
+    //   var mm = objectValue.name;
+	        var jsonObj = {'query': str};
 		//var searchResult = justwatch.search({query: name});
              response.writeHead(200, {'Content-Type': 'application/json'});
             response.write(JSON.stringify(jsonObj, null, 4)); 
