@@ -8,8 +8,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', async function(req, res) {
-
-	res.send(req.query.name);
+var jsonObj = {'query': req.query.name};
+	res.send(jsonObj);
   
 });
 
