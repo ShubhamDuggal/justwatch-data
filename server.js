@@ -2,7 +2,7 @@ var http = require('http');
 querystring = require('querystring');
 const JustWatch = require('./');
 var port = process.env.PORT || 3000;
-
+var fs = require('fs');
 
 const server = http.createServer((request, response) => {
 	response.setHeader('Access-Control-Allow-Origin', '*')
@@ -37,6 +37,12 @@ if(request.method === 'POST') {
 		//var searchResult = justwatch.search({query: name});
              response.writeHead(200, {'Content-Type': 'application/json'});
             response.write(JSON.stringify(jsonObj, null, 4)); 
+		
+
+fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
+  if (err) throw err;
+  console.log('Saved!');
+});
          
 		
 		//  var justwatch = new JustWatch();
