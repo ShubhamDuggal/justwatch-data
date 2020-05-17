@@ -37,7 +37,7 @@ if(request.method === 'POST') {
 	        var jsonObj = {'query': jsonData.name};
 		//var searchResult = justwatch.search({query: name});
              response.writeHead(200, {'Content-Type': 'application/json'});
-            response.write(JSON.stringify(jsonObj, null, 4)); 
+            response.write(JSON.stringify(jsonData, null, 4)); 
 		
 
 fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
