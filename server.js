@@ -33,13 +33,17 @@ if(request.method === 'POST') {
             // use parse() method
 		
 		jsonData = JSON.parse(body);
-             console.log(jsonData.name);
+             var name= jsonData.name;
 			 
-			 var jsonObj = {'query': jsonData.name};
+	//		 var jsonObj = {'query': jsonData.name};
 		//var searchResult = justwatch.search({query: name});
-             response.writeHead(200, {'Content-Type': 'application/json'});
-            response.write(JSON.stringify(jsonObj, null, 4)); 
-	
+        //     response.writeHead(200, {'Content-Type': 'application/json'});
+       //     response.write(JSON.stringify(jsonObj, null, 4)); 
+		
+		
+	 var justwatch = new JustWatch();
+         var searchResult = await justwatch.search({query: name});
+	print_result(searchResult);
           response.end();
         });
     }
