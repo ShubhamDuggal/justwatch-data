@@ -31,24 +31,15 @@ if(request.method === 'POST') {
         // when complete POST data is received
         request.on('end', () => {
             // use parse() method
-            body = querystring.parse(body);
-            jsonData = JSON.parse(JSON.stringify(body));
-             console.log(jsonData.query);
-	        var jsonObj = {'query': jsonData.name};
+		
+		jsonData = JSON.parse(body);
+             console.log(jsonData.name);
+			 
+			 var jsonObj = {'query': jsonData.name};
 		//var searchResult = justwatch.search({query: name});
              response.writeHead(200, {'Content-Type': 'application/json'});
-            response.write(JSON.stringify(jsonData, null, 4)); 
-		
-
-fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
-  if (err) throw err;
-  console.log('Saved!');
-});
-         
-		
-		//  var justwatch = new JustWatch();
-                //var searchResult = justwatch.search({query: body});
-	        // return searchResult;
+            response.write(JSON.stringify(jsonObj, null, 4)); 
+	
           response.end();
         });
     }
